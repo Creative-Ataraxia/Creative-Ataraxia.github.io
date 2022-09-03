@@ -1,8 +1,11 @@
-// import * as THREE from 'three'; // import all from the url of 'three'; CDN: https://unpkg.com/three@0.127.0/build/three.module.js
+// import * as THREE from 'three';
+// import { TWEEN } from 'three/addons/libs/tween.module.min.js';
+// import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
+// import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
 import * as THREE from "https://unpkg.com/three@0.127.0/build/three.module.js";
-import { TWEEN } from 'three/addons/libs/tween.module.min.js';
-import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
-import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
+import { TWEEN } from "https://unpkg.com/three@0.127.0/examples/jsm/libs/tween.module.min.js";
+import { TrackballControls } from "https://unpkg.com/three@0.127.0/examples/jsm/controls/TrackballControls.js";
+import { CSS3DRenderer, CSS3DObject } from "https://unpkg.com/three@0.127.0/examples/jsm/renderers/CSS3DRenderer.js";
 
 // format: 'center symbol', 'short desc line1', 'short desc line2', 'column', 'row'
 const table = [
@@ -46,6 +49,7 @@ const targets = { table: [], sphere: [], helix: [], grid: [] };
 // main loops
 init();
 animate();
+
 
 function init() {
   // init camera, scene; set camera starting pos;
@@ -151,7 +155,6 @@ function init() {
     document.getElementById( 'about' ).style.visibility = "visible";
     document.getElementById( 'techstacks' ).style.visibility = "hidden";
     document.getElementById( 'skills' ).style.visibility = "hidden";
-    transform( targets.table, 1000 ); // pass to tween all the initial values of the objects in table; animate over 1 second + some random modifier defined in transform()
 
   } );
 
@@ -161,7 +164,6 @@ function init() {
     document.getElementById( 'about' ).style.visibility = "hidden";
     document.getElementById( 'techstacks' ).style.visibility = "visible";
     document.getElementById( 'skills' ).style.visibility = "hidden";
-    transform( targets.sphere, 1000 );
 
   } );
 
@@ -179,14 +181,12 @@ function init() {
     document.getElementById( 'about' ).style.visibility = "hidden";
     document.getElementById( 'techstacks' ).style.visibility = "hidden";
     document.getElementById( 'skills' ).style.visibility = "visible";
-    transform( targets.grid, 1000 );
 
   } );
 
   const buttonReset = document.getElementById( 'reset' );
   buttonReset.addEventListener( 'click', function () {
 
-    transform( targets.table, 1000 );              // reset button animate to grid view
     controls.reset();                             // and reset controls/camera to default
 
   } );
@@ -240,19 +240,42 @@ function onWindowResize() {                     // adjust renderer size when win
 
 }
 
+
+
 function animate() {                           // main game loop
 
   requestAnimationFrame( animate );            // animte each screen frame; 60fps by default
   TWEEN.update();                              // update animation kit
   controls.update();                           // update controls
-
+  auto_animate();
+  
 }
+
+var count = 0;
+function auto_animate() {
+  if (count % 720 == 0) {
+    transform( targets.table, 1500 ); // pass to tween all the initial values of the objects in table; animate over 1 second + some random modifier defined in transform()
+  }
+  else if (count % 360 == 0) {
+    transform( targets.grid, 1500 );
+  }
+  else if (count % 180 == 0) {
+    transform( targets.sphere, 1500 );
+  }
+  else if (count > 720) {
+    return;
+  }
+  count++;
+}
+
+
 
 function render() {
 
   renderer.render( scene, camera );
 
 }
+
 
 
 // feature needed:
