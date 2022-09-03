@@ -1,4 +1,5 @@
-import * as THREE from 'three'; // import all from the url of 'three'; CDN: https://unpkg.com/three@0.127.0/build/three.module.js
+// import * as THREE from 'three'; // import all from the url of 'three'; CDN: https://unpkg.com/three@0.127.0/build/three.module.js
+import * as THREE from "https://unpkg.com/three@0.127.0/build/three.module.js";
 import { TWEEN } from 'three/addons/libs/tween.module.min.js';
 import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
 import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
