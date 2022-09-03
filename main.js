@@ -3,18 +3,35 @@ import { TWEEN } from 'three/addons/libs/tween.module.min.js';
 import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
 import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
 
-// text for objects
+// format: 'center symbol', 'short desc line1', 'short desc line2', 'column', 'row'
 const table = [
-  'I', 'One', '1.00794', 1, 1,
-  'II', 'Two', '4.002602', 18, 1,
-  'III', 'Three', '6.941', 1, 2,
-  'IV', 'Four', '9.012182', 2, 2,
-  'V', 'Five', '10.811', 13, 2,
-  'VI', 'Six', '12.0107', 14, 2,
-  'VII', 'Seven', '14.0067', 15, 2,
-  'VIII', 'Eight', '15.9994', 16, 2,
-  'IX', 'Nine', '18.9984032', 17, 2,
-  'X', 'Ten', '20.1797', 18, 2,
+  './images/icons/icons8-python-96.png', '1', '1', 1, 1, 
+  './images/icons/icons8-javascript-96.png', '2', '2', 2, 1, 
+  './images/icons/icons8-git-96.png', '3', '3', 3, 1, 
+  './images/icons/icons8-github-96.png', '4', '4', 4, 1, 
+  './images/icons/icons8-bash-96.png', '5', '5', 5, 1, 
+  './images/icons/icons8-markdown-96.png', '6', '6', 6, 1, 
+  './images/icons/icons8-typescript-96.png', '9', '9', 1, 2, 
+  './images/icons/icons8-html-5-96.png', '10', '10', 2, 2, 
+  './images/icons/icons8-css3-96.png', '11', '11', 3, 2, 
+  './images/icons/icons8-sql-64.png', '13', '13', 4, 2, 
+  './images/icons/icons8-mysql-100.png', '12', '12', 5, 2, 
+  './images/icons/icons8-pytorch-96.png', '17', '17', 1, 3, 
+  './images/icons/icons8-tensorflow-96.png', '16', '16', 2, 3, 
+  './images/icons/icons8-numpy-96.png', '14', '14', 3, 3, 
+  './images/icons/icons8-pandas-96.png', '15', '15', 4, 3, 
+  './images/icons/icons8-three-67.png', '18', '18', 5, 3, 
+  './images/icons/icons8-selenium-80.png', '19', '19', 6, 3, 
+  './images/icons/icons8-vscode-96.png', '20', '20', 1, 4, 
+  './images/icons/icons8-windows10-100.png', '21', '21', 2, 4, 
+  './images/icons/icons8-linux-96.png', '22', '22', 3, 4, 
+  './images/icons/icons8-uml-64.png', '7', '7', 4, 4, 
+  './images/icons/icons8-json-96.png', '8', '8', 5, 4, 
+  './images/icons/icons8-Leetcode-64.png', '23', '23', 1, 5, 
+  './images/icons/icons8-octocat-96.png', '24', '24', 2, 5, 
+  './images/icons/icons8-code-96.png', '26', '26', 3, 5, 
+  './images/icons/icons8-binary-64.png', '27', '27', 4, 5, 
+  './images/icons/Binary-tree_25386.png', '28', '28', 5, 5,
 ];
 
 // declare major components
@@ -32,41 +49,43 @@ animate();
 function init() {
   // init camera, scene; set camera starting pos;
   camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
-  camera.position.z = 3000;
+  camera.position.x = 0;
+  camera.position.y = 0;
+  camera.position.z = 2500;
   scene = new THREE.Scene();
 
   // generate html elements for nodes and their attributes
   for ( let i = 0; i < table.length; i += 5 ) {             
 
-    const element = document.createElement( 'div' );           // generate an html element each loop
+    const element = document.createElement( 'div' );           // generate an element div
     element.className = 'element';                                 
-    element.style.backgroundColor = 'rgba(50, 50, 255, 0.3)';  // controls each node's bgcolor
 
-    const number = document.createElement( 'div' );                 
+    const number = document.createElement( 'div' );            // generate an inner div for 'number'
     number.className = 'number';                              
     number.textContent = ( i / 5 ) + 1;
     element.appendChild( number );
 
-    const symbol = document.createElement( 'div' );
+    const symbol = document.createElement( 'img' );            // generate an <img>
     symbol.className = 'symbol';
-    symbol.textContent = table[ i ];
+    symbol.src = table[ i ];                                   // include source in table col1 "images/images.."                       
+    symbol.alt = table[i].split('-')[1];;                      // use image file name as alt; so the name display even if image failed to load
     element.appendChild( symbol );
 
-    const details = document.createElement( 'div' );
+    const details = document.createElement( 'div' );           // generate an inner div for 'details'
     details.className = 'details';
     details.innerHTML = table[ i + 1 ] + '<br>' + table[ i + 2 ];
     element.appendChild( details );
 
     const objectCSS = new CSS3DObject( element );           // wrap the css3 object around the html elements
-    objectCSS.position.x = Math.random() * 4000 - 2000;     // set object's position
+    objectCSS.position.x = Math.random() * 4000 - 2000;     // set animation's random starting position when animating to other forms
     objectCSS.position.y = Math.random() * 4000 - 2000;
     objectCSS.position.z = Math.random() * 4000 - 2000;
     
     scene.add( objectCSS );                                 // add css object to scene                
     objects.push( objectCSS );                              // push css object to objects container
     const object = new THREE.Object3D();                    // init a function scoped object to feed containers
-    object.position.x = ( table[ i + 3 ] * 140 ) - 1330;    // set position
-    object.position.y = - ( table[ i + 4 ] * 180 ) + 990;
+    object.position.x = ( table[ i + 3 ] * 250 ) - 1800;    // set spaces between columns for table form; the constant is the entire group's placement on scenen
+    object.position.y = - ( table[ i + 4 ] * 250 ) + 860;   // set spaces between rows for table form; the constant is the entire group's placement on scenen
     targets.table.push( object );                           // push node plane object with position attribute to 'table' container
 
   }
@@ -79,36 +98,38 @@ function init() {
     const phi = Math.acos( - 1 + ( 2 * i ) / l );
     const theta = Math.sqrt( l * Math.PI ) * phi;
     const object = new THREE.Object3D();
-    object.position.setFromSphericalCoords( 800, phi, theta );  // set object's position to spherical configuration
-    vector.copy( object.position ).multiplyScalar( 2 );         // double object's position; point to center
+    object.position.setFromSphericalCoords( 650, phi, theta );  // set object's position to spherical configuration                    
+    vector.copy( object.position ).multiplyScalar( 2 );         // define a center for sphere objects to look at; change this along with x to make entire sphere
+    vector.x -= 900;
+    object.position.x -= 900;
     object.lookAt( vector );                                    // tilt objects to face center
     targets.sphere.push( object );                              // push node plane object with position attribute to 'sphere' container
+
+  }
+  
+  // grid
+  for ( let i = 1; i < objects.length + 1; i ++ ) {
+
+    const object = new THREE.Object3D();                                 // grid, each plane holds 25 nodes
+    object.position.x = ( ( i % 3 ) * 400 ) - 1250;                      // change spaces between rows; 5 nodes per row;
+    object.position.y = ( - ( Math.floor( i / 3 ) % 3 ) * 400 ) + 400;   // change spaces between columns; 5 nodes per column;
+    object.position.z = ( Math.floor( Math.abs( i-objects.length ) / 9 ) * 1000 ) - 1500; // change spaces between layers; 5 nodes per layer;
+    targets.grid.push( object );                                         // push to grid container
 
   }
 
   // helix
   for ( let i = 0, l = objects.length; i < l; i ++ ) {
 
-    const theta = i * 0.175 + Math.PI;
-    const y = - ( i * 8 ) + 450;
+    const theta = i * 0.2 + Math.PI;
+    const y = - ( i * 20 ) + 450;
     const object = new THREE.Object3D();
-    object.position.setFromCylindricalCoords( 900, theta, y );
-    vector.x = object.position.x * 2;
+    object.position.setFromCylindricalCoords( 700, theta, y );
+    vector.x = object.position.x * 10;
     vector.y = object.position.y;
     vector.z = object.position.z * 2;
     object.lookAt( vector );                                     // tilt objects facing
     targets.helix.push( object );                                // push to helix container
-
-  }
-
-  // grid
-  for ( let i = 0; i < objects.length; i ++ ) {
-
-    const object = new THREE.Object3D();
-    object.position.x = ( ( i % 5 ) * 400 ) - 800;
-    object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 400 ) + 800;
-    object.position.z = ( Math.floor( i / 25 ) ) * 1000 - 2000;
-    targets.grid.push( object );                                   // push to grid container
 
   }
 
@@ -122,9 +143,13 @@ function init() {
   controls.maxDistance = 8000;                                     // how far you can zoom out
   controls.addEventListener( 'change', render );                   // 'change' is a three.js event; fires when camera tranformed
 
+  // controls buttons
   const buttonTable = document.getElementById( 'table' );
   buttonTable.addEventListener( 'click', function () {
 
+    document.getElementById( 'about' ).style.visibility = "visible";
+    document.getElementById( 'techstacks' ).style.visibility = "hidden";
+    document.getElementById( 'skills' ).style.visibility = "hidden";
     transform( targets.table, 1000 ); // pass to tween all the initial values of the objects in table; animate over 1 second + some random modifier defined in transform()
 
   } );
@@ -132,20 +157,27 @@ function init() {
   const buttonSphere = document.getElementById( 'sphere' );
   buttonSphere.addEventListener( 'click', function () {
 
+    document.getElementById( 'about' ).style.visibility = "hidden";
+    document.getElementById( 'techstacks' ).style.visibility = "visible";
+    document.getElementById( 'skills' ).style.visibility = "hidden";
     transform( targets.sphere, 1000 );
 
   } );
 
-  const buttonHelix = document.getElementById( 'helix' );
+  /* const buttonHelix = document.getElementById( 'helix' );
   buttonHelix.addEventListener( 'click', function () {
 
     transform( targets.helix, 1000 );
 
-  } );
+  } ); */
 
-  const buttonGrid = document.getElementById( 'grid' );
+  const buttonGrid = document.getElementById( 'grid' );            // last node gets put first
   buttonGrid.addEventListener( 'click', function () {
 
+    camera.position.x = 300;
+    document.getElementById( 'about' ).style.visibility = "hidden";
+    document.getElementById( 'techstacks' ).style.visibility = "hidden";
+    document.getElementById( 'skills' ).style.visibility = "visible";
     transform( targets.grid, 1000 );
 
   } );
@@ -153,12 +185,12 @@ function init() {
   const buttonReset = document.getElementById( 'reset' );
   buttonReset.addEventListener( 'click', function () {
 
-    transform( targets.table, 1000 );                   // animate to table view
-    controls.reset();                                   // and reset controls/camera to default
+    transform( targets.table, 1000 );              // reset button animate to grid view
+    controls.reset();                             // and reset controls/camera to default
 
   } );
 
-  transform( targets.table, 1000 );
+  transform( targets.table, 1000 );                // first animate to grid view on initial load
 
   window.addEventListener( 'resize', onWindowResize );  // adjust renderer.size when window is resized
 
@@ -224,3 +256,4 @@ function render() {
 
 // feature needed:
   // add a background that moves with the controls
+  // animate objects to slightly rotate

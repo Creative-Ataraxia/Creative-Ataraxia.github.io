@@ -1,0 +1,203 @@
+body, html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%
+  }
+
+main {
+  position: fixed;
+  top: 10vh;
+  bottom: 10vh;
+  right: 5vh;
+  width: 50%;
+  box-shadow: 0px 0px 2px 5px rgba(200,199,255,0.75); /* box-shadow: x, y, blur, spread*/
+  border: 1px solid rgba(127,255,255,0.25);
+  background-color: rgba(50, 50, 255, 0.15);
+  z-index: 99;  
+}
+
+  section {
+    position: absolute;
+    right: 10px;
+    left: 10px;
+    top: 10px;
+    bottom: 10px;
+    font-family: adobe-garamond-pro,Arial,Helvetica,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    letter-spacing: 0em;
+    line-height: 1.15em;
+  }
+
+
+  h1, h2, h3 {
+    font-family: proxima-nova,Arial,Helvetica,sans-serif;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 1em;
+    text-align: center;
+  }
+
+  #about {
+    visibility: visible;
+    z-index: 50;
+  }
+  #techstacks {
+    visibility: hidden;
+    z-index: 51;
+  }
+  #skills {
+    visibility: hidden;
+    z-index: 52;
+  }
+
+.bg {
+  position: fixed;
+  background-image: url("images/space.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+}
+
+#info {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	text-align: center;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	z-index: 1; /* TODO Solve this in HTML */
+}
+
+a {
+  color: #8ff;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+  a:link {
+    color: #8ff;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: rgb(50, 50, 255);
+  }
+
+#menu {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+#menu_tip {
+  position: absolute;
+  bottom: 1px;
+  left: 30%;
+  right: 30%;
+  text-align: center;
+  font-size: 65%;
+  z-index: 55;
+}
+
+#controls {
+  position: fixed;
+  bottom: 5px;
+  left: 5px;
+  line-height:20px;
+  font-size: 75%;
+  z-index: 1000;
+  text-align: left;
+}
+
+#footer {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  line-height:20px;
+  font-size: 75%;
+  text-decoration: none;
+  z-index: 1000;
+  text-align: right;
+}
+
+.element {                                              /* Nodes overall */
+  width: 200px;                                         /* define node wide */
+  height: 200px;                                        /* define node height */
+  line-height: 200px;                                   /* center symbol if line-height == height */                     
+  text-align: center;
+  box-shadow: 0px 0px 5px 10px rgba(200,199,255,0.75); /* box-shadow: x, y, blur, spread*/
+  border: 1px solid rgba(127,255,255,0.25);
+  background-color: rgba(50, 50, 255, 0.3);
+  font-family: Helvetica, sans-serif;
+  cursor: default;
+}
+
+  .element .symbol {                                     /* center */
+    position: absolute;
+    top: 0px;                                            /* position of image */
+    left: 0px;
+    width: 100%;                                         /* scale of image */
+    height: 100%;
+  }
+
+  .element:hover {                                         /* Nodes on hover*/
+    box-shadow: 0px 0px 0px 5px rgba(200,199,255,0.75);
+    border: 1px solid rgba(127,255,255,0.75);
+    background-color: rgba(200, 200, 200, 0.5);
+  }
+
+button {
+  color: rgba(127,255,255,0.75);
+  background-color: rgba(50, 50, 255, 0.35);
+  outline: 1px solid rgba(127,255,255,0.75);
+  border: 0px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+  button:hover {
+    background-color: rgba(0,255,255,0.5);
+  }
+
+  button:active {
+    color: #000000;
+    background-color: rgba(0,255,255,0.75);
+  }
+
+/* unused */
+.element .number {                                     /* top right corner */
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 12px;
+  color: rgba(127,255,255,0.75);
+  display: none;
+}
+
+.element .details {                                    /* bottom */
+  position: absolute;
+  bottom: 15px;
+  left: 0px;
+  right: 0px;
+  font-size: 12px;
+  color: rgba(127,255,255,0.75);
+  display: none;
+}
+
+/* what is giving the window the scroll bar?: the position: relative of #bg*/
