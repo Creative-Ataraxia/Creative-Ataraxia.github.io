@@ -155,6 +155,7 @@ function init() {
     document.getElementById( 'about' ).style.visibility = "visible";
     document.getElementById( 'techstacks' ).style.visibility = "hidden";
     document.getElementById( 'skills' ).style.visibility = "hidden";
+    transform( targets.table, 1000 );
 
   } );
 
@@ -164,6 +165,7 @@ function init() {
     document.getElementById( 'about' ).style.visibility = "hidden";
     document.getElementById( 'techstacks' ).style.visibility = "visible";
     document.getElementById( 'skills' ).style.visibility = "hidden";
+    transform( targets.sphere, 1000 );
 
   } );
 
@@ -181,12 +183,15 @@ function init() {
     document.getElementById( 'about' ).style.visibility = "hidden";
     document.getElementById( 'techstacks' ).style.visibility = "hidden";
     document.getElementById( 'skills' ).style.visibility = "visible";
+    transform( targets.grid, 1000 );
+    
 
   } );
 
   const buttonReset = document.getElementById( 'reset' );
   buttonReset.addEventListener( 'click', function () {
-
+    
+    transform( targets.table, 1000 );             // transform to table, and
     controls.reset();                             // and reset controls/camera to default
 
   } );
