@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap');
 
 body {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Roboto Serif', sans-serif;
   color: #fff;
 }
 
@@ -26,6 +26,7 @@ main {
     justify-content: center;
   }
   button {
+    font-family: 'Roboto Serif', sans-serif;
     font-size: 1.25rem;
     color: rgba(127,255,255,0.75);
     background-color: rgba(50, 50, 255, 0.35);
@@ -48,6 +49,7 @@ main {
     grid-row: 2 / span 1;
     padding: 25px;
     overflow: scroll;
+    background-color: rgba(50, 50, 255, 0.15);
   }
     h2 {
       font-size: 2rem;
@@ -68,6 +70,8 @@ main {
     #skills {
       visibility: hidden;
       z-index: 52;
+      font-size: 1.5rem;
+      text-align: left;
     }
 
 .animation {
@@ -123,7 +127,7 @@ a {
 
 .bg {
   position: fixed;
-  background-image: url("images/space.jpg");
+  background-image: url("images/space_1280.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -131,7 +135,7 @@ a {
   left: 0px;
   height: 100%;
   width: 100%;
-  opacity: 0.8;
+  opacity: 0.65;
   z-index: -1;
 }
 

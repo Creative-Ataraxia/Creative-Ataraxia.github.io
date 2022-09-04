@@ -123,9 +123,9 @@ function init() {
   for ( let i = 1; i < objects.length + 1; i ++ ) {
 
     const object = new THREE.Object3D();                                 // grid, each plane holds 25 nodes
-    object.position.x = ( ( i % 3 ) * 400 ) - 1250;                      // change spaces between rows; 5 nodes per row;
+    object.position.x = ( ( i % 3 ) * 400 ) - 1300;                      // change spaces between rows; 5 nodes per row;
     object.position.y = ( - ( Math.floor( i / 3 ) % 3 ) * 400 ) + 400;   // change spaces between columns; 5 nodes per column;
-    object.position.z = ( Math.floor( Math.abs( i-objects.length ) / 9 ) * 1000 ) - 1500; // change spaces between layers; 5 nodes per layer;
+    object.position.z = ( Math.floor( Math.abs( i-objects.length ) / 9 ) * 1000 ) - 2000; // change spaces between layers; 5 nodes per layer;
     targets.grid.push( object );                                         // push to grid container
 
   }
@@ -186,7 +186,7 @@ function init() {
   const buttonGrid = document.getElementById( 'grid' );            // last node gets put first
   buttonGrid.addEventListener( 'click', function () {
 
-    camera.position.x = 300;
+    camera.position.x = 500;
     document.getElementById( 'about' ).style.visibility = "hidden";
     document.getElementById( 'techstacks' ).style.visibility = "hidden";
     document.getElementById( 'skills' ).style.visibility = "visible";
