@@ -15,27 +15,33 @@ const table = [
   './images/icons/icons8-github-96.png', '4', '4', 4, 1, 
   './images/icons/icons8-bash-96.png', '5', '5', 5, 1, 
   './images/icons/icons8-markdown-96.png', '6', '6', 6, 1, 
+
   './images/icons/icons8-typescript-96.png', '9', '9', 1, 2, 
   './images/icons/icons8-html-5-96.png', '10', '10', 2, 2, 
   './images/icons/icons8-css3-96.png', '11', '11', 3, 2, 
-  './images/icons/icons8-sql-64.png', '13', '13', 4, 2, 
-  './images/icons/icons8-mysql-100.png', '12', '12', 5, 2, 
+  './images/icons/icons8-redis-96.png', '13', '13', 4, 2, 
+  './images/icons/icons8-mysql-96.png', '12', '12', 5, 2, 
+  './images/icons/icons8-mongodb-96.png', '12', '12', 6, 2,
+
   './images/icons/icons8-pytorch-96.png', '17', '17', 1, 3, 
   './images/icons/icons8-tensorflow-96.png', '16', '16', 2, 3, 
   './images/icons/icons8-numpy-96.png', '14', '14', 3, 3, 
   './images/icons/icons8-pandas-96.png', '15', '15', 4, 3, 
-  './images/icons/icons8-three-67.png', '18', '18', 5, 3, 
+  './images/icons/icons8-3d-object-96.png', '18', '18', 5, 3, 
   './images/icons/icons8-selenium-80.png', '19', '19', 6, 3, 
+
   './images/icons/icons8-vscode-96.png', '20', '20', 1, 4, 
-  './images/icons/icons8-windows10-100.png', '21', '21', 2, 4, 
+  './images/icons/icons8-windows-10-96.png', '21', '21', 2, 4, 
   './images/icons/icons8-linux-96.png', '22', '22', 3, 4, 
   './images/icons/icons8-uml-64.png', '7', '7', 4, 4, 
-  './images/icons/icons8-json-96.png', '8', '8', 5, 4, 
+  './images/icons/JSON_vector_logo.svg', '8', '8', 5, 4, 
+  './images/icons/icons8-testing-58.png', '8', '8', 6, 4, 
+
   './images/icons/icons8-Leetcode-64.png', '23', '23', 1, 5, 
-  './images/icons/icons8-octocat-96.png', '24', '24', 2, 5, 
-  './images/icons/icons8-code-96.png', '26', '26', 3, 5, 
-  './images/icons/icons8-binary-64.png', '27', '27', 4, 5, 
-  './images/icons/Binary-tree_25386.png', '28', '28', 5, 5,
+  './images/icons/icons8-nodejs-96.png', '24', '24', 2, 5, 
+  './images/icons/icons8-vim-96.png', '26', '26', 3, 5, 
+  './images/icons/icons8-webpack-96.png', '27', '27', 4, 5, 
+  './images/icons/icons8-docker-96.png', '28', '28', 5, 5,
 ];
 
 // declare major components
