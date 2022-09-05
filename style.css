@@ -51,8 +51,8 @@ main {
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
     padding: 25px;
-    overflow: scroll;
     background-color: rgba(50, 50, 255, 0.15);
+    overflow: auto;
   }
     h2 {
       font-size: 2rem;
