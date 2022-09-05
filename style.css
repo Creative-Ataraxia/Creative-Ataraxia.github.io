@@ -24,15 +24,18 @@ main {
     grid-row: 1 / span 1;
     display: flex;
     justify-content: center;
+    gap: 25px;
   }
   button {
+    display: inline-block;
     font-family: 'Roboto Serif', sans-serif;
     font-size: 1.25rem;
     color: rgba(127,255,255,0.75);
     background-color: rgba(50, 50, 255, 0.35);
     outline: 2.5px solid rgba(127,255,255,0.75);
-    border: 10px;
-    padding: 10px 50px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 25px;
     cursor: pointer;
   }
     button:hover {
