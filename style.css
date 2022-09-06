@@ -13,7 +13,7 @@ main {
   width: 100vw;
   
   display: grid;
-  grid-template-columns: 55% 45%;
+  grid-template-columns: 54% 45%;
   grid-template-rows: 60px auto;
   grid-gap: 30px;
 
@@ -51,33 +51,37 @@ main {
 .text{
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
-    padding: 25px;
+    padding: 20px;
+    margin: 10px;
     background-color: rgba(50, 50, 255, 0.15);
     overflow: auto;
     text-indent: 50px;
   }
-    h2 {
-      font-size: 2rem;
-      text-align: center;
-    }
-    p {
-      font-size: 1.5rem;
-      text-align: left;
-    }
-    #about {
-      visibility: visible;
-      z-index: 50;
-    }
-    #techstacks {
-      visibility: hidden;
-      z-index: 51;
-    }
-    #skills {
-      visibility: hidden;
-      z-index: 52;
-      font-size: 1.5rem;
-      text-align: left;
-    }
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  p {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+  strong, span {
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
+  }
+  #about {
+    visibility: visible;
+    z-index: 50;
+  }
+  #techstacks {
+    visibility: hidden;
+    z-index: 51;
+  }
+  #skills {
+    visibility: hidden;
+    z-index: 52;
+    font-size: 1.5rem;
+    text-align: left;
+  }
 
 .animation {
   grid-column: 1 / span 1;
