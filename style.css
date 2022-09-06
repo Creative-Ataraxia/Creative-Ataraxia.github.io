@@ -9,7 +9,7 @@ main {
   position: fixed;
   top: 0px;
   left: 0px;
-  height: 97vh;             /* 97% of viewport's height */
+  height: 95vh;             /* 97% of viewport's height */
   width: 100vw;
   
   display: grid;
@@ -30,16 +30,17 @@ main {
     display: inline-block;
     font-family: 'Roboto Serif', sans-serif;
     font-size: 1.25rem;
-    color: rgba(127,255,255,0.75);
+    color: white;
     background-color: rgba(50, 50, 255, 0.35);
-    outline: 2.5px solid rgba(127,255,255,0.75);
-    border: none;
-    border-radius: 5px;
-    padding: 10px 25px;
+    border: inset 2.5px rgba(127,255,255,0.75);
+    border-radius: 12px;
+    width: 300px;
+    padding: 10px;
     cursor: pointer;
   }
-    button:hover {
-      background-color: rgba(0,255,255,0.5);
+    button:hover, button:active {
+      background-color: grey;
+      border: outset;
     }
     button:active {
       color: #000000;
@@ -53,6 +54,7 @@ main {
     padding: 25px;
     background-color: rgba(50, 50, 255, 0.15);
     overflow: auto;
+    text-indent: 50px;
   }
     h2 {
       font-size: 2rem;
